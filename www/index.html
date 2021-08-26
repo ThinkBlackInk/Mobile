@@ -12,7 +12,7 @@
 html { -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-user-select: none; -ms-touch-action: none;}
 iframe {-webkit-user-select: text;}
 .A5container {float:left;padding:0px;}
-.A5CWLayout {padding: 4px; float: left; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;}
+.A5CWLayout {padding: 0px;; float: left; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;}
 .A5GridHideErrorCol .A5GridErrorCol {display:none; }
 .A5GridRowErrorIcon {display:none;}
 .A5GridHasRowError .A5GridRowErrorIcon {display:inline-block;}
@@ -32,25 +32,14 @@ iframe {-webkit-user-select: text;}
 .A5SelectedButton {opacity:.5;filter:alpha(opacity=50);}
 .A5InvisibleLock {background: rgba(0,0,0,0); }
 .A5floatClear { clear: both; font-size: 0px; width: 0px; height: 0px; overflow: hidden; padding: 0px; margin: 0px; border:none; visibility:hidden; }
-.A5ListGroupHeaders {z-index:5;	position:relative;}
 
 
 
-.A5ContainerAlignCenter {padding: 4px; margin-left:auto;margin-right:auto;text-align: center; box-sizing: border-box;}
-.A5ContainerAlignLeft {padding: 4px; margin-right:auto;text-align: left; box-sizing: border-box;} 
-.A5ContainerAlignRight {padding: 4px; margin-left:auto;text-align: right; box-sizing: border-box;}
+.A5ContainerAlignCenter {padding: 0px;; margin-left:auto;margin-right:auto;text-align: center; box-sizing: border-box;}
+.A5ContainerAlignLeft {padding: 0px;; margin-right:auto;text-align: left; box-sizing: border-box;} 
+.A5ContainerAlignRight {padding: 0px;; margin-left:auto;text-align: right; box-sizing: border-box;}
 
 .A5ContainerAlignCenter > .A5CWLayout, .A5ContainerAlignLeft > .A5CWLayout, .A5ContainerAlignRight > .A5CWLayout, .A5ContainerAlignCenter > .A5container, .A5ContainerAlignLeft > .A5container, .A5ContainerAlignRight > .A5container  {display: inline-block; float: none;}
-
-
-
-.A5FloatingLabelCont {	position: relative;	margin-top: 20px;}
-.A5FloatingLabelInsideCont {	position: relative;	}
-.A5FloatingLabelInsideCont input, .A5FloatingLabelInsideCont select, .A5FloatingLabelInsideCont textarea {	padding-top: 20px !important;}
-
-.A5FloatingLabel, .A5FloatingLabelInside {pointer-events:none;	position: absolute;	opacity: .5;	top: 50%;	left: 10px;;	right: 10px;; transform: translate(0px,-51%);	transition: transform 300ms, top 300ms, font-size 300ms;}
-.A5FloatingLabelFloat .A5FloatingLabel {	font-size: 10px;	top: 0px;	opacity: 1;	transform: translate(0px,-100%);}
-.A5FloatingLabelFloat .A5FloatingLabelInside {	font-size: 10px;	top: 0px;	opacity: 1;	transform: translate(0px,6px);}
 
 
 
@@ -91,31 +80,38 @@ iframe {-webkit-user-select: text;}
 
 </style>
 
-<link palette="" rel="stylesheet" type="text/css" href="css/iOS7/style.css ">
-<link rel="stylesheet" type="text/css" href="css/_sharedStyles/style.css">
+<link palette="" rel="stylesheet" type="text/css" href="css/Alpha/style.css?buildcount_515">
+<link rel="stylesheet" type="text/css" href="css/_sharedStyles/style.css?buildcount_515">
 
 <style type="text/css">
 .iconSizeable {
-  vertical-align: middle; }
-.iconDisabled {
-  opacity: .75; }
+  vertical-align: middle;
+  fill: #333;
+  stroke: #333; }
+.centerBgImage {
+  background-image: url("icon.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 128px; }
 </style>
 <style>
 </style>
 
+<script src="phonegap.js"></script>
 <script src="cordova.js"></script>
 
 <script type="text/javascript" src="javascript/a5.js"></script>
 <script type="text/javascript" src="javascript/a5_url.js"></script>
-<script type="text/javascript" src="css/iOS7/style.js"></script>
-<script type="text/javascript" src="javascript/A5jQueryWithUI.js"></script>
+<script type="text/javascript" src="css/Alpha/style.js"></script>
 <script>
 	if(typeof jQuery != 'undefined') jQuery.noConflict();
 </script>
+<script type="text/javascript" src="_instantUpdateSettings.js"></script>
 <script type="text/javascript" src="_phoneGapSettings.js"></script>
 
-<title></title></head>
-<body class="iOS7Page">
+<title></title>
+</head>
+<body class="page  pulse">
 <iframe style="display:none;" id="DLG1.__IFRAME1"></iframe>
 <input type="hidden" value="" id="DLG1.PARAMETERBUCKET"/>
 <input type="file" style="position:absolute; top:-1000px;visibility:hidden;" accept="image/*" id="DLG1._GETPHOTO"/><input type="file" style="position:absolute; top:-1000px;visibility:hidden;" name="files[]" multiple = "" id="DLG1._GETFILEMULTI"/><input type="file" style="position:absolute; top:-1000px;visibility:hidden;" name="files[]" id="DLG1._GETFILE"/>
@@ -243,48 +239,22 @@ if(typeof DLG1_DlgObj == 'object') {
 		DLG1_DlgObj = undefined;
 	}
 };
-;if(typeof DLG1_PanelObj != 'undefined' && DLG1_PanelObj) {
+;if(typeof DLG1_PanelObj != 'undefined') {
 	var ele = $(DLG1_PanelObj.getPanelId());
 	if(ele) {
 		if(ele.parentNode) ele.parentNode.removeChild(ele);
 	}
 	delete DLG1_PanelObj;
 }
-;window['DLG1_PanelObj'] = new A5.PanelNavigator([
-{
-	name: 'PANEL_LOGIN',
-	src: new A5.PanelCard({
-	theme: 'iOS7',
+;window['DLG1_PanelObj'] = new A5.PanelCard({
+	theme: 'Alpha',
 	body: {
 		content: {
 			type: 'html',
-			src: '<div \tid="DLG1.V.R1.TWOFACTORAUTHENTICATION_STAGE1"   \r\n\t\t\tclass="A5CWLayout "  style="width: 100%; "  >\r\n<div class="A5CWLayout" style="width: " >\r\n\t<div id="DLG1.V.R1.STATICTEXT_4" title=""  class="" style="box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;"   >Mobile App Test</div>\r\n</div><br  style="clear:both; " />\r\n<div class="A5CWLayout" style="width: 100%" >\r\n\t<input\ttype="text" id="DLG1.V.R1.USERID" title=""     class="iOS7Edit" style="width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;"    name="V.R1.USERID"    value=""    />\r\n\r\n</div><br  style="clear:both; " />\r\n<form><div class="A5CWLayout" style="width: 100%" >\r\n\t<input\ttype="password" id="DLG1.V.R1.PASSWORD" title=""     class="iOS7Edit" style="width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;"    name="V.R1.PASSWORD"    value=""    />\r\n\r\n</div><br  style="clear:both; " /></form>\r\n<div class="A5CWLayout" style="width: 100%" >\r\n\t<button type="button" id="DLG1.V.R1.LOGIN_BUTTON"    ></button>\r\n</div><br  style="clear:both; " />\r\n<div class="A5CWLayout" style="width: 100%"  id="DLG1.V.R1.LOGIN_ERRORS" style="width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;">\r\n</div><br  style="clear:both; " />\r\n<div style="font: 0pt arial;clear:both;"></div>\r\n\t</div>\r\n<br  id="DLG1.V.R1.TWOFACTORAUTHENTICATION_STAGE1.BREAK"  style="clear:both; " />\r\n<div \tid="DLG1.V.R1.TWOFACTORAUTHENTICATION_STAGE2"   \r\n\t\t\tclass="A5CWLayout "  style="display: none; width: 100%; "  >\r\n\r\n<div class="A5CWLayout" style="width: " >\r\n\t<div id="DLG1.V.R1.STATICTEXT_2" title=""  class="" style="box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;"   >Please enter your authentication code.</div>\r\n</div><br  style="clear:both; " />\r\n<div class="A5CWLayout" style="width: 100%" >\r\n\t<input\ttype="text" id="DLG1.V.R1.CODE" title=""     class="iOS7Edit" style="width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;"    name="V.R1.CODE"    value=""    />\r\n\r\n</div><br  style="clear:both; " />\r\n<div class="A5CWLayout" style="width: " >\r\n\t<div id="DLG1.V.R1.STATICTEXT_2" title=""  class="" style="box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;"   ><div id="DLG1.TFA.MESSAGE" style="display:none;"></div></div>\r\n</div><br  style="clear:both; " />\r\n<div class="A5CWLayout" style="width: 100%" >\r\n\t<button type="button" id="DLG1.V.R1.LOGIN_BUTTON1"    ></button>\r\n</div><br  style="clear:both; " />\r\n<div style="font: 0pt arial;clear:both;"></div>\r\n\t</div>\r\n<br  id="DLG1.V.R1.TWOFACTORAUTHENTICATION_STAGE2.BREAK"  style="clear:both; " />\r\n<div class="A5CWLayout" style="width: " >\r\n\t<button type="button" id="DLG1.V.R1.BUTTON_10"    ></button>\r\n</div>\r\n<div class="A5floatClear"></div>'
+			src: '<div style="width:" class="A5CWLayout">\r\n\t<div id="DLG1.V.R1.FREEFORM_1" class="" style=""   ><style>\r\n\tsection {\r\n\t\tbackground:hsl(195.06,100%,50%);\r\n\t\tcolor:white;\r\n\t\tborder-radius: 1em;\r\n\t\tpadding: 15px;\r\n\t\tposition: absolute;\r\n\t\ttop: 70%;\r\n\t\tleft: 50%;\r\n\t\tmargin-right: -40%;\r\n\t\ttransform: translate(-50%,-50%);\r\n\t}\r\n</style>\r\n\r\n<div id="msg" style="display:none">\r\n\t<section>\r\n\t\t<div id = "i_msg">Please wait while the app is prepared for first-time use.</div>\r\n\t</section>\r\n</div></div>\r\n</div><div class="A5floatClear"></div>'
 		},
-		scroll: {
-			axis: 'both',
-			stopPropogation: false,
-			pull: {
-				y: 'auto',
-				x: 'auto'
-			},
-			indicator: {
-				show: true,
-				h: {
-					show: true,
-					location: 'right',
-					offset: '0px',
-					left: '0px',
-					right: '0px'
-				},
-				v: {
-					show: true,
-					location: 'right',
-					offset: '0px',
-					top: '0px',
-					bottom: '0px'
-				}
-			}
-		}
+		scroll: false,
+		className: 'centerBgImage'
 	},
 	header: {
 		html: '<div style="display:none;"></div>'
@@ -293,103 +263,12 @@ if(typeof DLG1_DlgObj == 'object') {
 	},
 	overlay: {
 	},
-	onSize: function() {if(typeof DLG1_DlgObj != 'undefined' && typeof DLG1_DlgObj._panelCardResize != 'undefined') { DLG1_DlgObj._panelCardResize('PANEL_LOGIN'); };},
-	onView: function() {},
-	onActivate: function() {},
-	onCreate: function() {}
-})
-},
-{
-	name: 'PANEL_APPLICATION',
-	src: new A5.PanelCard({
-	theme: 'iOS7',
-	body: {
-		content: {
-			type: 'html',
-			src: '<div class="A5CWLayout" style="width: " >\r\n\t<div id="DLG1.V.R1.STATICTEXT_1" title=""  class="" style="box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;"   ><div>Home Panel of Application</div>\r\n\r\n<div id="div1" style="border: solid 1px blue; margin: 10px; padding: 10px; width: 90%"></div></div>\r\n</div><br  style="clear:both; " />\r\n<div class="A5floatClear"></div>'
-		},
-		scroll: {
-			axis: 'both',
-			stopPropogation: false,
-			pull: {
-				y: 'auto',
-				x: 'auto'
-			},
-			indicator: {
-				show: true,
-				h: {
-					show: true,
-					location: 'right',
-					offset: '0px',
-					left: '0px',
-					right: '0px'
-				},
-				v: {
-					show: true,
-					location: 'right',
-					offset: '0px',
-					top: '0px',
-					bottom: '0px'
-				}
-			}
-		}
-	},
-	header: {
-		html: '<div style="display:none;"></div>'
-	},
-	footer: {
-		html: '<div class="A5CWLayout" style="width: " > \t<button type="button" id="DLG1.V.R1.LOGOUT_BUTTON"    ></button> </div> <div class="A5CWLayout" style="width: " > \t<button type="button" id="DLG1.V.R1.BUTTON_9"    ></button> </div> ',
-		show: true
-	},
-	overlay: {
-	},
-	onSize: function() {if(typeof DLG1_DlgObj != 'undefined' && typeof DLG1_DlgObj._panelCardResize != 'undefined') { DLG1_DlgObj._panelCardResize('PANEL_APPLICATION'); };},
-	onView: function() {},
-	onActivate: function() {},
-	onCreate: function() {}
-})
-}
-],{
-	type: 'programmatic',
-	flow: 'ltr',
-	loopNavigate: false,
-	onPanelActivate: function() {},
-	onPanelActivateComplete: function() {;
-DLG1_DlgObj.refreshClientSideComputations(true);},
-	onPanelView: function() {;},
 	onSize: function() {;if(typeof DLG1_DlgObj != 'undefined') {
  if(typeof DLG1_DlgObj._findActiveLayoutRule != 'undefined') {
   DLG1_DlgObj._findActiveLayoutRule();
  }
-}},
-	onCreate: function() {},
-	theme: 'iOS7',
-	header: {
-		show: false
-	},
-	footer: {
-	},
-	overlay: {
-	},
-	controls: {
-		prev: {
-			has: false
-		},
-		next: {
-			has: false
-		},
-		back: {
-			has: false
-		},
-		forward: {
-			has: false
-		}
-	},
-	body: {
-	},
-	animation: {
-		duration: 400
-	}
+}
+if(typeof DLG1_DlgObj != 'undefined' && typeof DLG1_DlgObj._panelCardResize != 'undefined') { DLG1_DlgObj._panelCardResize('PANELCARD_1'); };}
 })
 var ele = window['DLG1_PanelObj'].create('DLG1.R1');
 		var panelRootId = '{UXPRERENDEROUTPUTDIV}';
@@ -409,28 +288,20 @@ var ele = window['DLG1_PanelObj'].create('DLG1.R1');
 			if(window[wf_alias + '_PanelObj']) window[wf_alias + '_PanelObj'].bindSize('window');
 		}
 DLG1_PanelObj._panelPath = {
-	PANEL_LOGIN: 'PANEL_LOGIN',
-	PANEL_APPLICATION: 'PANEL_APPLICATION'
 }
 DLG1_PanelObj._displayNames = {
-PANEL_LOGIN : 'PANEL_LOGIN',PANEL_APPLICATION : 'PANEL_APPLICATION',PANEL_APPLICATIONNAVIGATOR : 'PANEL_APPLICATIONNAVIGATOR'
+PANELCARD_1 : 'PANELCARD_1'
 };
 if(typeof DLG1_DlgObj == 'object') DLG1_DlgObj._destroy();
 var DLG1_DlgObj = new A5.DialogComponentHelper('DLG1',{
-	ajaxURL: 'apps.think-black-ink.com/tournaments/MOBILETOURNEY.a5wcmp?__virtualPage=__a5RunDialog.a5w&__dialogFilename=MOBILETOURNEY&__alias=DLG1&__unsaved=no',
+	ajaxURL: 'INSTANTUPDATECORE.a5wcmp?__virtualPage=__a5RunDialog.a5w&__dialogFilename=INSTANTUPDATECORE&__alias=DLG1&__unsaved=no',
 	_embeddedMode: false,
 	_livePreviewInBuilder: false,
-	componentGUID: '03f6625b-1be0-4eb7-863f-4b7753690dc7',
-	columnInfo: {'USERID': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'PASSWORD': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'CODE': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  }},
+	componentGUID: '19fbee84-3b88-45a1-b770-6bb2e4ea00d6',
+	columnInfo: {},
 	originalValues: [{
-	"USERID": "",
-	"PASSWORD": "",
-	"CODE": ""
 }],
 	defaultValues: {
-	"USERID": "",
-	"PASSWORD": "",
-	"CODE": ""
 },
 	datePickerMonthNames: ['January','February','March','April','May','June','July','August','September','October','November','December'],
 	datePickerDayNames: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
@@ -439,14 +310,14 @@ var DLG1_DlgObj = new A5.DialogComponentHelper('DLG1',{
 	datePickerFirstDayOfWeek: 1,
 	resetFormMessage: 'Are you sure you want to reset the form?',
 	resetFormTitle: 'Warning',
-	resetFormIcon: 'cssIcon=iOS7Icon iOS7IconHelp',
+	resetFormIcon: 'svgIcon=#alpha-icon-questionCircle:icon',
 	dirtyFormMessage: 'You must first save your changes or cancel changes by clicking the Reset button.',
 	dirtyFormTitle: 'Notice',
-	dirtyFormIcon: 'cssIcon=iOS7Icon iOS7IconInfo',
+	dirtyFormIcon: 'svgIcon=#alpha-icon-infoCircle:icon',
 	deleteRecordDialogTitle: 'Delete Record',
 	deleteRecordDialogMessage: 'Are you sure you want to delete this record?',	
 	ssDateFormat: 'MM/dd/yyyy',
-	styleName: 'iOS7',
+	styleName: 'Alpha',
 	_fieldHelpers_DIALOG2: [],
 	parentComponentAlias: '',
 	submitIfHasClientSideErrors: true, 
@@ -458,43 +329,71 @@ var DLG1_DlgObj = new A5.DialogComponentHelper('DLG1',{
 	fieldErrors: {
 		type: 'block', 
 		className: 'errorText',
-		inputClassName: 'iOS7EditError',
+		inputClassName: 'editError',
 		edit: { 
-			container: { className: 'iOS7EditBGError'}
+			container: { className: 'editError'}
 		},
-		icon: 'cssIcon=iOS7Icon iOS7IconError',
+		icon: 'svgIcon=#alpha-icon-exclamationCircle:icon',
 		global: {
 			contId: 'DLG1.GLOBALERRORS',
 			hoverClassName: 'errorTextHighlight',
 			hoverInputClassName: 'errorInputHighlight'
 		}
 	},
-		onRenderComplete: function(e) {
-var key = DLG1_DlgObj.componentGUID;
-var token = localStorage.getItem(key);
-if(token == null) token = '';
-if(token != '' ) {
- DLG1_DlgObj.stateInfo['token'] = token;
- DLG1_DlgObj.panelSetActive('PANEL_APPLICATION',false);
- var otherSettingsKey = key + '.OTHERSETTINGS';
- var otherSettingsJSON = localStorage.getItem(otherSettingsKey)
- if(otherSettingsJSON == null) otherSettingsJSON = '';
- if(otherSettingsJSON != '') {
-  var secObj = JSON.parse(otherSettingsJSON)
-  this._objR = secObj._objR;
-  this._objSV = secObj._objSV;
-  this._objRLists = secObj._objRLists;
-  this._objSVLists = secObj._objSVLists;
-  this.__r = secObj.__r;
- }
-} else {
- DLG1_DlgObj.panelSetActive('PANEL_LOGIN');
-}
-DLG1_DlgObj.applyServerSideRules();
-		},
 		onOrientationChange: function(e) {
 var pObj = DLG1_DlgObj.getPanelObject();
 if(pObj) pObj.resize();
+		},
+		onPhoneGapReady: function(e) {
+var _srcPath = cordova.file.applicationDirectory + '/www/baseline.zip';
+var _destinationDirPath = DLG1_DlgObj.phoneGapGetLocalDirURL('private');
+var _destinationName = 'baseline.zip';
+DLG1_DlgObj.codepush={};
+DLG1_DlgObj.codepush.zipFile = _destinationDirPath+'/'+_destinationName;
+DLG1_DlgObj.codepush.fName = _destinationName
+DLG1_DlgObj.codepush.sPath = _srcPath;
+DLG1_DlgObj.codepush.dPath = _destinationDirPath+'/';
+thisApp = _instantUpdateSettings();
+thisApp.usesPhoneGap = true;
+thisApp.displaySystemMessages = thisApp.systemMessages == 'Verbose'?true:false;
+thisApp.initialLoadFlag = true;
+thisApp.usingWkWebView = false;
+if (typeof(WkWebView) == 'object') {
+ if (typeof(WkWebView.isAlphaWkWebView) == 'function') {
+  thisApp.usingWkWebView = WkWebView.isAlphaWkWebView();
+  writeFileToLocalStorage()
+  .then (message => {
+   console.log(message);
+   var _channel = localStorage.channel;
+   thisApp.channel = _channel.toLowerCase() == 'production'?'':localStorage.channel;
+   thisApp.changeChannel = localStorage.changeChannel=='true'?true:false;
+   verifyAppInstalled();
+  })
+  .catch (e => {
+   setDefaultLocalStorageProperties();
+   var _channel = localStorage.channel;
+   thisApp.channel = _channel.toLowerCase() == 'production'?'':localStorage.channel;
+   thisApp.changeChannel = localStorage.changeChannel=='true'?true:false;
+   writeLocalStorageToFile()
+   .then(message => {
+    console.log(message);
+    verifyAppInstalled();
+   })
+   .catch( e => {
+    console.log('Error: ' +e);
+    verifyAppInstalled();
+   });
+  })
+ }
+} else {
+ if (typeof localStorage.changeChannel == "undefined") {
+  setDefaultLocalStorageProperties();
+ }
+ var _channel = localStorage.channel;
+ thisApp.channel = _channel.toLowerCase() == 'production'?'':localStorage.channel;
+ thisApp.changeChannel = localStorage.changeChannel=='true'?true:false;
+ verifyAppInstalled();
+}
 		},
 		_onWindowResize: function(e) {
 var arr = DLG1_DlgObj._listControls;
@@ -515,21 +414,11 @@ DLG1_DlgObj._findActiveLayoutRule();
 A5.__componentObj = DLG1_DlgObj;
 A5.map._fn='https://maps.googleapis.com/maps/api/js?key=&libraries=geometry&callback=A5.map.init';
 DLG1_DlgObj._tabObjects = [];
-A5.loadJavascript(';\n;');
-if(!DLG1_DlgObj.fieldHelpers['USERID'])DLG1_DlgObj.fieldHelpers['USERID'] = new A5.Edit({
-	watermark: {
-		text: 'User Id'
-	}
-});
-if(!DLG1_DlgObj.fieldHelpers['PASSWORD'])DLG1_DlgObj.fieldHelpers['PASSWORD'] = new A5.Edit({
-	watermark: {
-		text: 'Password'
-	}
-});
+A5.loadJavascript('function verifyAppInstalled() {\n var _success = function(properties) {\n  console.log(\'app is installed in local file system.\');\n  installNewBaseLineOrUpdateExistingApp();\n };\n var _error = function(e) {\n  console.log(\'app is not installed\');\n  copyAppZipToPrivateFileSystem();\n };\n thisApp.usesPhoneGap = usingPhoneGapJS()\n var _filePath = DLG1_DlgObj.phoneGapGetLocalDirURL(\'private\') + \'thisApp/index.html\';\n window.resolveLocalFileSystemURL(_filePath,_success,_error);\n}\nfunction usingPhoneGapJS() {\n var phoneGapApp = !!window.phonegap;\n return phoneGapApp;\n}\nfunction deleteLocalApp() {\n var _success = function() {\n  console.log(\'deleted thisApp directory from local file system.\');\n  copyAppZipToPrivateFileSystem();\n }\n var _error = function() {\n  console.log(\'unable to delete thisApp directory from local file system.\');\n  copyAppZipToPrivateFileSystem();\n }\n var _gotTargetDirectory = function(dirEntry) {\n  dirEntry.removeRecursively(_success,_error)\n }\n var _filePath = DLG1_DlgObj.phoneGapGetLocalDirURL(\'private\') + \'thisApp\';\n window.resolveLocalFileSystemURL(_filePath,_gotTargetDirectory,_error);\n}\nfunction installNewBaseLineOrUpdateExistingApp() {\n var _success = function(result) {\n  console.log(\'installed app version.json file contained: \'+result);\n  try {\n   var vObj = JSON.parse(result);\n   console.dir(vObj);\n  }\n  catch(err) {\n   navigator.notification.alert(\'Error parsing local version file.\');\n   loadLocalApp();\n  }\n  if ((vObj.baseLineGUID != thisApp.baseLineGUID) || thisApp.changeChannel) {\n   localStorage.changeChannel = \'false\';\n   thisApp.changeChannel = false;\n   const msg = \'app is installed in local file system, but baseLineGUID does not match, or channel changed, installing baseline app.\';\n   if (thisApp.usingWkWebView) {\n    writeLocalStorageToFile()\n    .then(message => {\n     console.log(message);\n     console.log(msg);\n     deleteLocalApp();\n    })\n    .catch( e => {\n     console.log(\'Error: \' +e);\n    });\n   } else {\n    console.log(msg);\n    deleteLocalApp();\n   }\n  } else {\n   console.log(\'baseLineGUID\\\'s match.\');\n   thisApp.initialLoadFlag = false;\n   var getUpdate=false;\n   if (localStorage.autoUpdate == "true" || localStorage.checkForUpdate == "true") {\n    localStorage.checkForUpdate = "false";\n    getUpdate = true;\n   }\n   thisApp.processingUpdate = false;\n   var deviceOnline = DLG1_DlgObj._getOnlineStatus();\n   var msg = deviceOnline?\'device is online\':\'device is offline\';\n   console.log(msg)\n   if (thisApp.usingWkWebView) {\n    writeLocalStorageToFile()\n    .then(message => {\n     console.log(message);\n     if (getUpdate && deviceOnline) {\n      getInstalledAppVersion();\n     } else {\n      loadLocalApp();\n     }\n    })\n    .catch( e => {\n     console.log(\'Error: \' +e);\n    });\n   } else {\n    if (getUpdate && deviceOnline) {\n     getInstalledAppVersion();\n    } else {\n     loadLocalApp();\n    }\n   }\n  }\n };\n var _error = function(e) {\n  navigator.notification.alert(\'Error reading local version file.\');\n  loadLocalApp();\n };\n var _filePath = DLG1_DlgObj.phoneGapGetLocalDirURL(\'private\') + \'thisApp/version.json\';\n DLG1_DlgObj.phoneGapReadFileURL(_filePath, _success,_error)\n}\nfunction verifyPhoneGapFilePresentInPrivateFilesystem() {\n var _success = function(properties) {\n  console.log(this.phoneGapFileName + \' exists\');\n  if ((thisApp.processingUpdate) || (thisApp.initialLoadFlag)) {\n   if (thisApp.processingUpdate) {\n    thisApp.processingUpdate = false;\n   }\n   deleteZipFileFromPrivateDirectory(thisApp.currentZipFileName);\n  } else {\n   loadLocalApp();\n  }\n };\n var _error = function(e) {\n  console.log(this.phoneGapFileName + \' does not exist\');\n  copyPhoneGapFiles();\n };\n var phoneGapFilename = thisApp.usesPhoneGap?"phonegap.js":"cordova.js";\n var _filePath = DLG1_DlgObj.phoneGapGetLocalDirURL(\'private\') + \'thisApp/\'+phoneGapFilename;\n window.resolveLocalFileSystemURL(_filePath,_success,_error);\n}\nfunction unzip(source) {\n var _source = source;\n thisApp.currentZipFileName = _source;\n console.log(\'Will unzip file: \'+_source);\n function _zipCallback(res) {\n  if (res == 0) {\n   console.log(\'Zip file extract complete\');\n   verifyPhoneGapFilePresentInPrivateFilesystem()\n  } else {\n   console.log(\'Unzip failed\');\n   navigator.notification.alert(\'Unzip failed for file: \'+_source);\n   loadLocalApp();\n  }\n }\n var _onSuccess = function() {\n    console.log(\'Directory created \'+_baseURI+\'/\'+_dirStructure);\n    zip.unzip(_source,_baseURI+\'/\'+_dirStructure,_zipCallback);\n  };\n  var _error = function(e) {\n    console.log(\'Directory create failed\');\n    hideInitMsg();\n    loadLocalApp();\n  };\n  var _baseURI = DLG1_DlgObj.phoneGapGetLocalDirURL(\'private\');\n  var _dirStructure = \'thisApp\';\n  DLG1_DlgObj.phoneGapEnsureDirPathURL(_baseURI, _dirStructure, _onSuccess, _error);\n}\nfunction setDefaultLocalStorageProperties () {\n if (typeof localStorage.channel == \'undefined\') {\n  localStorage.autoUpdate = thisApp.autoUpdate?"true":"false";\n  localStorage.checkForUpdate = "false";\n  localStorage.channel = "production";\n  localStorage.changeChannel = "false";\n }\n}\nfunction copyAppZipToPrivateFileSystem() {\n var _onCopySuccess = function() {\n  console.log(DLG1_DlgObj.codepush.fName+\' copied to private file root directory, unzipping to /thisApp folder.\');\n  unzip(DLG1_DlgObj.codepush.zipFile);\n };\n var _error = function(e) {\n  hideInitMsg();\n  navigator.notification.alert(\'baseline.zip file copy to private file system failed. You may need to uninstall and re-install the app.\');\n };\n if (!!thisApp.firstTimeRunMessage) {\n  if (thisApp.displayFirstTimeLoadMessage) {\n   showInitMsg();\n  }\n }\n setDefaultLocalStorageProperties();\n if (thisApp.usingWkWebView) {\n  writeLocalStorageToFile()\n  .then(message => {\n   console.log(message);\n   DLG1_DlgObj.phoneGapCopyFileURL(DLG1_DlgObj.codepush.sPath,DLG1_DlgObj.codepush.dPath , DLG1_DlgObj.codepush.fName, _onCopySuccess, _error);\n  })\n  .catch( e => {\n   console.log(\'Error: \' +e);\n  });\n } else {\n  DLG1_DlgObj.phoneGapCopyFileURL(DLG1_DlgObj.codepush.sPath,DLG1_DlgObj.codepush.dPath , DLG1_DlgObj.codepush.fName, _onCopySuccess, _error);\n }\n}\nfunction copyPluginsDirectoryToAppFolder() {\n var _dirCopyFail = function(e) {\n     console.log(\'directory copy failed.\');\n     console.dir(e);\n     navigator.notification.alert(\'Plugin directory copy failed\');\n }\n var _dirCopyOK = function (){\n     console.log(\'Directory copied successfully.\');\n     deleteZipFileFromPrivateDirectory (thisApp.currentZipFileName)\n }\n var _gotTargetDirectory = function(targetDirectoryEntry) {\n     console.log(\'Got target directoryEntry\');\n     thisApp.sourceDirectoryEntry.copyTo(targetDirectoryEntry, \'plugins\', _dirCopyOK, _dirCopyFail);\n }\n var _gotSourceDirectory = function(directoryEntry){\n  console.log(\'Got source DirectoryEntry\');\n  thisApp.sourceDirectoryEntry = directoryEntry;\n  var dPath = DLG1_DlgObj.codepush.dPath+\'/thisApp/\';\n  console.log(\'Requesting target DirectoryEntry\');\n  window.resolveLocalFileSystemURL(dPath, _gotTargetDirectory, _fsFail);\n }\n var _fsFail = function(){\n     console.log("Unable to resolve local filesystem URL, error");\n     console.dir(e);\n     navigator.notification.alert("Unable to resolve local filesystem URL, error");\n }\n var sPath = cordova.file.applicationDirectory + \'/www/plugins\';\n console.log(\'Requesting source DirectoryEntry\');\n window.resolveLocalFileSystemURL(sPath, _gotSourceDirectory, _fsFail);\n}\nfunction copyPhoneGapFiles() {\n var _copyFileFromDeviceWebRootToAppFolder = function(fileName) {\n  var _srcPath = cordova.file.applicationDirectory + \'/www/\'+fileName;\n  var _destinationDirPath = DLG1_DlgObj.phoneGapGetLocalDirURL(\'private\');;\n  var _destinationName = \'/thisApp/\'+fileName;\n  DLG1_DlgObj.phoneGapCopyFileURL(_srcPath, _destinationDirPath, _destinationName, _onCopySuccess, _error);\n };\n var _onCopySuccess = function() {\n  count++;\n  switch(count) {\n   case 1:\n    _copyFileFromDeviceWebRootToAppFolder(files[count]);\n    break;\n   case 2:\n    copyPluginsDirectoryToAppFolder();\n    break;\n  }\n };\n var _error = function(e) {\n  var jsFileName = thisApp.usingPhoneGap?"phonegap.js":"cordova.js";\n  navigator.notification.alert(\'Error: \'+jsFileName+ \' missing, unable to run app. Try to uninstall and re-install the app.\');\n };\n var count = 0;\n var files = thisApp.usesPhoneGap?["phonegap.js","cordova_plugins.js"]:["cordova.js","cordova_plugins.js"];\n _copyFileFromDeviceWebRootToAppFolder(files[count]);\n}\nfunction deleteZipFileFromPrivateDirectory(fName) {\n var _onDeleteSuccess = function() {\n  console.log(\'private: \' + fName + \' file deleted.\');\n  if (thisApp.initialLoadFlag) {\n   verifyAppInstalled();\n  } else {\n   loadLocalApp();\n  }\n };\n var _error = function(e) {\n  console.log(\'Zip file delete failed.\');\n  loadLocalApp();\n };\n var _filePath = fName;\n console.log(\'deleting file: \'+_filePath);\n DLG1_DlgObj.phoneGapDeleteFileURL(_filePath, _onDeleteSuccess,_error);\n}\nfunction getInstalledAppVersion() {\n var _success = function(result) {\n  console.log(\'version.json file contained: \'+result);\n  try {\n   var vObj = JSON.parse(result);\n   console.dir(vObj);\n  }\n  catch(err) {\n   navigator.notification.alert(\'Error parsing version file.\');\n   loadLocalApp();\n  }\n  thisApp.version = typeof vObj.version == \'undefined\' ? vObj.versionNumber : vObj.version;\n  thisApp.developerVersionNumber = typeof vObj.developerVersionNumber == \'undefined\' ? thisApp.version : vObj.developerVersionNumber;\n  if (thisApp.displaySystemMessages) {\n   var versionMsg = "Installed version is: ";\n   if (thisApp.version == thisApp.developerVersionNumber) {\n    versionMsg += thisApp.version;\n   } else {\n    versionMsg += thisApp.version + \'-\' + thisApp.developerVersionNumber;\n   }\n   window.plugins.toast.showShortCenter(versionMsg);\n  }\n  getUpdateVersion();\n };\n var _error = function(e) {\n  navigator.notification.alert(\'Error reading version file.\');\n  loadLocalApp();\n };\n var _filePath = DLG1_DlgObj.phoneGapGetLocalDirURL(\'private\') + \'thisApp/version.json\';\n DLG1_DlgObj.phoneGapReadFileURL(_filePath, _success,_error)\n}\nfunction getS3UpdateURI(){\n var fn = \'changes_\' +thisApp.baseLineGUID +\'_v\' + thisApp.updateVersion + thisApp.channel + \'.zip\'\n thisApp.s3FileName = thisApp.baseURL + fn;\n thisApp.downloadedFileName = DLG1_DlgObj.codepush.dPath + fn;\n return [thisApp.s3FileName];\n}\nfunction getUpdateFromS3() {\n var _list = window[\'getS3UpdateURI\']();\n var arr = [];\n for(var i = 0; i < _list.length; i++) {\n  arr.push( {filename: _list[i]} );\n }\n var options = {\n  directory: \'/\',\n  strip: true,\n  filesystem: \'private\',\n  showProgress: true,\n  forceDownloadIfFileExists: true,\n  onComplete: function(array) {\n   thisApp.downloadedFileName = DLG1_DlgObj.codepush.dPath+\'changes_\'+thisApp.baseLineGUID+\'_v\' + thisApp.updateVersion + thisApp.channel+ \'.zip\';\n   if (thisApp.displayMessageAfterUpdate) {\n    var thisMsg = thisApp.message.replace(\'{version}\',thisApp.updateVersion);\n    thisMsg = thisMsg.replace(\'{developerVersionNumber}\',thisApp.updateDeveloperVersionNumber);\n    if (thisApp.channel !="") {\n     var cMsg = \'Channel: \'+thisApp.channel+ \': \';\n     thisMsg = cMsg+thisMsg;\n    }\n    window.plugins.toast.showShortCenter(thisMsg);\n   }\n   thisApp.processingUpdate = true;\n   unzip(thisApp.downloadedFileName);\n  },\n  onError: function(array,arrayIndex) {\n   navigator.notification.alert(\'S3 file download error.\');\n   loadLocalApp();\n  },\n  progress: {\n   color: \'#9fa1e8\',\n   width: \'300px\',\n   allowCancel: false,\n   progressElement: \'DLG1.V.R1.PLACEHOLDER_1\'\n  }\n }\n DLG1_DlgObj.phoneGapFileDownload(arr,options);\n}\nfunction getUpdateVersion() {\n var xhr = new XMLHttpRequest();\n var url = thisApp.baseURL + \'currentversion_\'+thisApp.channel+thisApp.baseLineGUID +\'.json?\'+new Date().getTime();\n xhr.ontimeout = function () {\n  console.log(\'getUpdateVersion: 5000ms xhr request timeout\');\n  loadLocalApp();\n };\n xhr.onreadystatechange = function() {\n  console.log(\'onReadyStateChange: xhr.readyState=\'+xhr.readyState+\' xhr.status=\'+xhr.status);\n  if (xhr.readyState==4) {\n    if (xhr.status==200) {\n    var contentType = this.getResponseHeader(\'content-type\');\n    console.log(\'contentType: \'+ contentType);\n    console.log(\'this.responseText: \' + this.responseText);\n    if (contentType.indexOf(\'text/html\') != -1) {\n     navigator.notification.alert(\'Network proxy page detected, open a browser to sign into the network prior to running this app.\');\n     loadLocalApp();\n    } else {\n     try {\n      var result = JSON.parse(this.responseText);\n      if (result.versionNumber != thisApp.version) {\n       console.log(\'getUpdateVersion: update is available.\');\n       thisApp.updateAvailable = true;\n       thisApp.updateVersion = result.versionNumber;\n       if (typeof result.developerVersionNumber !== "undefined") {\n        thisApp.updateDeveloperVersionNumber = result.developerVersionNumber\n       } else {\n        thisApp.updateDeveloperVersionNumber = \'\';\n       }\n       if (thisApp.updateVersion == 1) {\n        copyAppZipToPrivateFileSystem();\n       } else {\n        getUpdateFromS3();\n       }\n      } else {\n       if  (thisApp.displaySystemMessages) {\n        window.plugins.toast.showShortCenter(\'App is running the latest update.\');\n       }\n       loadLocalApp();\n      }\n     } catch(e) {\n      console.log(\'Invalid JSON returned, loading local app.\');\n      loadLocalApp();\n     }\n    }\n   } else {\n    console.log(\'No update, xhr.status: \'+xhr.status);\n    if (thisApp.channel != "") {\n     if  (thisApp.displaySystemMessages) {\n      window.plugins.toast.showShortCenter(\'An update file for channel \'+thisApp.channel+\' does not exist. Baseline app loaded.\');\n     }\n    }\n    loadLocalApp();\n   }\n  }\n };\n xhr.open("GET",url,true);\n xhr.timeout = 5000;\n xhr.send();\n}\nfunction verifyAppPresentInPrivateFilesystemAndLaunch() {\n var _success = function(properties) {\n  console.log(\'loading: \'+ DLG1_DlgObj.codepush.dPath+\'thisApp/index.html\');\n  var localIndexFile = DLG1_DlgObj.codepush.dPath+\'thisApp/index.html\';\n  if (thisApp.usingWkWebView) {\n   localIndexFile = \'alpha-local://html?url=\'+localIndexFile;\n  }\n  location.href = localIndexFile;\n };\n var _error = function(e) {\n  console.log(\'thisApp/index.html does not exist\');\n  navigator.notification.alert(\'Error, required index.html file is missing.\');\n };\n var _filePath = DLG1_DlgObj.phoneGapGetLocalDirURL(\'private\') + \'thisApp/index.html\';\n if (thisApp.displayFirstTimeLoadMessage) {\n  hideInitMsg();\n }\n window.resolveLocalFileSystemURL(_filePath,_success,_error);\n}\nfunction showInitMsg() {\n var $e = $("i_msg");\n $e.innerHTML = thisApp.firstTimeRunMessage;\n var $e2 = $("msg");\n $e2.style.display = "block";\n}\nfunction hideInitMsg() {\n var $e = $("msg");\n $e.style.display = "none";\n}\nfunction writeLocalStorageToFile(localFile = \'json.txt\') {\n console.log(\'starting writeLocalStorageToFile()\');\n return new Promise((resolve,reject) => {\n  var obj = {};\n  obj.autoUpdate = localStorage.autoUpdate;\n  obj.changeChannel = localStorage.changeChannel;\n  obj.channel = localStorage.channel;\n  obj.checkForUpdate = localStorage.checkForUpdate;\n  var thisJson = JSON.stringify(obj);\n  console.log(\'writeLocalStorageToFile()\');\n  DLG1_DlgObj.phoneGapCreateFile(localFile,thisJson,function(){\n   resolve(\'Instant Update local file written.\');\n  }, function() {\n   reject(\'Instant Update local file write failed.\');\n  }, false);\n });\n}\nfunction writeFileToLocalStorage(localFile = \'json.txt\') {\n console.log(\'writeFileToLocalStorage\');\n return new Promise((resolve,reject) => {\n  DLG1_DlgObj.phoneGapReadFile(localFile,function(data) {\n   var thisJson = data;\n   console.log(\'writeFileToLocalStorage.thisJson -> \'+thisJson);\n   var obj = {};\n   obj = JSON.parse(thisJson);\n   localStorage.autoUpdate = obj.autoUpdate;\n   localStorage.changeChannel = obj.changeChannel;\n   localStorage.channel = obj.channel;\n   localStorage.checkForUpdate = obj.checkForUpdate;\n   console.log(\'Instant Update local file properties successfully stored to localStorage\');\n   resolve(\'Instant Update local file properties successfully stored to localStorage\');\n  }, function() {\n   reject(\'local file json.txt does not exist\');\n  });\n });\n}\nfunction loadLocalApp() {\n verifyAppPresentInPrivateFilesystemAndLaunch();\n}\n;\n;',true);
 DLG1_DlgObj.lookups = {
 };
 DLG1_DlgObj.setStateInfo({
-	"__dialogGuid": "03f6625b-1be0-4eb7-863f-4b7753690dc7",
+	"__dialogGuid": "b612cda5-e9f6-4d1a-a4a7-ff030d5636c4",
 	"argumentsBoundToCotrols": "",
 	"__sgr": "",
 	"__dtfmt": "MM/dd/yyyy",
@@ -537,70 +426,15 @@ DLG1_DlgObj.setStateInfo({
 });
 DLG1_DlgObj._cascadingControls = [];
 DLG1_DlgObj._cascadingControlsChildren = [];
-DLG1_DlgObj.setStateInfo({ 	__args_c_PARENTARG: 'usa' });
-A5.msgBox.theme = 'iOS7';
+A5.msgBox.theme = 'Alpha';
 A5.msgBox.buttonWidth = '1in';
 DLG1_DlgObj._defaultWindowTitleDirection = 'ltr';
 DLG1_DlgObj._controlContainers = {}
 DLG1_DlgObj._panelCardControls = {
-USERID:'PANEL_LOGIN',
-PASSWORD:'PANEL_LOGIN',
-CODE:'PANEL_LOGIN'
 }
 DLG1_DlgObj._controlsOnPanel = {
-	'PANEL_LOGIN' : {controls: ['USERID','PASSWORD','CODE']}
 }
 DLG1_DlgObj._buttons = {};
-DLG1_DlgObj._buttons['LOGIN_BUTTON'] = new A5.Button({
-	layout: 'text',
-	style: 'width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box; ',
-	html: 'Login',
-	onClick: function() { 
-},
-	theme: 'iOS7'
-});
-DLG1_DlgObj._buttons['LOGIN_BUTTON1'] = new A5.Button({
-	layout: 'text',
-	style: 'width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box; ',
-	html: 'Submit Code',
-	onClick: function() { 
-},
-	theme: 'iOS7'
-});
-DLG1_DlgObj._buttons['BUTTON_10'] = new A5.Button({
-	layout: 'text',
-	style: 'box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;',
-	html: 'Ajax Callback',
-	onClick: function() { 
-},
-	theme: 'iOS7'
-});
-DLG1_DlgObj._buttons['LOGOUT_BUTTON'] = new A5.Button({
-	layout: 'text',
-	style: 'box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;',
-	html: 'Logout',
-	onClick: function() { 
-},
-	theme: 'iOS7'
-});
-DLG1_DlgObj._buttons['BUTTON_9'] = new A5.Button({
-	layout: 'text',
-	style: 'box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;',
-	html: 'Ajax Callback',
-	onClick: function() { 
-},
-	theme: 'iOS7'
-});
-DLG1_DlgObj._buttons['LOGIN_BUTTON'].bind('DLG1.V.R1.LOGIN_BUTTON');
-DLG1_DlgObj._buttons['LOGIN_BUTTON1'].bind('DLG1.V.R1.LOGIN_BUTTON1');
-DLG1_DlgObj._buttons['BUTTON_10'].bind('DLG1.V.R1.BUTTON_10');
-DLG1_DlgObj._buttons['LOGOUT_BUTTON'].bind('DLG1.V.R1.LOGOUT_BUTTON');
-DLG1_DlgObj._buttons['BUTTON_9'].bind('DLG1.V.R1.BUTTON_9');
-DLG1_DlgObj._buttons['LOGIN_BUTTON'].bind('DLG1.V.R1.LOGIN_BUTTON');
-DLG1_DlgObj._buttons['LOGIN_BUTTON1'].bind('DLG1.V.R1.LOGIN_BUTTON1');
-DLG1_DlgObj._buttons['BUTTON_10'].bind('DLG1.V.R1.BUTTON_10');
-DLG1_DlgObj._buttons['LOGOUT_BUTTON'].bind('DLG1.V.R1.LOGOUT_BUTTON');
-DLG1_DlgObj._buttons['BUTTON_9'].bind('DLG1.V.R1.BUTTON_9');
 DLG1_DlgObj.setVariables({});
 DLG1_DlgObj._dataBoundControls = [];
 DLG1_DlgObj._primaryTableAlias = '';
@@ -694,6 +528,8 @@ DLG1_DlgObj._functions.calcOrientation = function() {
 	}
 	catch(err) {}
 DLG1_DlgObj._waitGif = 'css/A5System/Images/wait.gif';
+var EXIF=(function(){var debug=false;var ExifTags={0x9000:"ExifVersion",0xA000:"FlashpixVersion",0xA001:"ColorSpace",0xA002:"PixelXDimension",0xA003:"PixelYDimension",0x9101:"ComponentsConfiguration",0x9102:"CompressedBitsPerPixel",0x927C:"MakerNote",0x9286:"UserComment",0xA004:"RelatedSoundFile",0x9003:"DateTimeOriginal",0x9004:"DateTimeDigitized",0x9290:"SubsecTime",0x9291:"SubsecTimeOriginal",0x9292:"SubsecTimeDigitized",0x829A:"ExposureTime",0x829D:"FNumber",0x8822:"ExposureProgram",0x8824:"SpectralSensitivity",0x8827:"ISOSpeedRatings",0x8828:"OECF",0x9201:"ShutterSpeedValue",0x9202:"ApertureValue",0x9203:"BrightnessValue",0x9204:"ExposureBias",0x9205:"MaxApertureValue",0x9206:"SubjectDistance",0x9207:"MeteringMode",0x9208:"LightSource",0x9209:"Flash",0x9214:"SubjectArea",0x920A:"FocalLength",0xA20B:"FlashEnergy",0xA20C:"SpatialFrequencyResponse",0xA20E:"FocalPlaneXResolution",0xA20F:"FocalPlaneYResolution",0xA210:"FocalPlaneResolutionUnit",0xA214:"SubjectLocation",0xA215:"ExposureIndex",0xA217:"SensingMethod",0xA300:"FileSource",0xA301:"SceneType",0xA302:"CFAPattern",0xA401:"CustomRendered",0xA402:"ExposureMode",0xA403:"WhiteBalance",0xA404:"DigitalZoomRation",0xA405:"FocalLengthIn35mmFilm",0xA406:"SceneCaptureType",0xA407:"GainControl",0xA408:"Contrast",0xA409:"Saturation",0xA40A:"Sharpness",0xA40B:"DeviceSettingDescription",0xA40C:"SubjectDistanceRange",0xA005:"InteroperabilityIFDPointer",0xA420:"ImageUniqueID"};var TiffTags={0x0100:"ImageWidth",0x0101:"ImageHeight",0x8769:"ExifIFDPointer",0x8825:"GPSInfoIFDPointer",0xA005:"InteroperabilityIFDPointer",0x0102:"BitsPerSample",0x0103:"Compression",0x0106:"PhotometricInterpretation",0x0112:"Orientation",0x0115:"SamplesPerPixel",0x011C:"PlanarConfiguration",0x0212:"YCbCrSubSampling",0x0213:"YCbCrPositioning",0x011A:"XResolution",0x011B:"YResolution",0x0128:"ResolutionUnit",0x0111:"StripOffsets",0x0116:"RowsPerStrip",0x0117:"StripByteCounts",0x0201:"JPEGInterchangeFormat",0x0202:"JPEGInterchangeFormatLength",0x012D:"TransferFunction",0x013E:"WhitePoint",0x013F:"PrimaryChromaticities",0x0211:"YCbCrCoefficients",0x0214:"ReferenceBlackWhite",0x0132:"DateTime",0x010E:"ImageDescription",0x010F:"Make",0x0110:"Model",0x0131:"Software",0x013B:"Artist",0x8298:"Copyright"};var GPSTags={0x0000:"GPSVersionID",0x0001:"GPSLatitudeRef",0x0002:"GPSLatitude",0x0003:"GPSLongitudeRef",0x0004:"GPSLongitude",0x0005:"GPSAltitudeRef",0x0006:"GPSAltitude",0x0007:"GPSTimeStamp",0x0008:"GPSSatellites",0x0009:"GPSStatus",0x000A:"GPSMeasureMode",0x000B:"GPSDOP",0x000C:"GPSSpeedRef",0x000D:"GPSSpeed",0x000E:"GPSTrackRef",0x000F:"GPSTrack",0x0010:"GPSImgDirectionRef",0x0011:"GPSImgDirection",0x0012:"GPSMapDatum",0x0013:"GPSDestLatitudeRef",0x0014:"GPSDestLatitude",0x0015:"GPSDestLongitudeRef",0x0016:"GPSDestLongitude",0x0017:"GPSDestBearingRef",0x0018:"GPSDestBearing",0x0019:"GPSDestDistanceRef",0x001A:"GPSDestDistance",0x001B:"GPSProcessingMethod",0x001C:"GPSAreaInformation",0x001D:"GPSDateStamp",0x001E:"GPSDifferential"};var StringValues={ExposureProgram:{0:"Not defined",1:"Manual",2:"Normal program",3:"Aperture priority",4:"Shutter priority",5:"Creative program",6:"Action program",7:"Portrait mode",8:"Landscape mode"},MeteringMode:{0:"Unknown",1:"Average",2:"CenterWeightedAverage",3:"Spot",4:"MultiSpot",5:"Pattern",6:"Partial",255:"Other"},LightSource:{0:"Unknown",1:"Daylight",2:"Fluorescent",3:"Tungsten (incandescent light)",4:"Flash",9:"Fine weather",10:"Cloudy weather",11:"Shade",12:"Daylight fluorescent (D 5700 - 7100K)",13:"Day white fluorescent (N 4600 - 5400K)",14:"Cool white fluorescent (W 3900 - 4500K)",15:"White fluorescent (WW 3200 - 3700K)",17:"Standard light A",18:"Standard light B",19:"Standard light C",20:"D55",21:"D65",22:"D75",23:"D50",24:"ISO studio tungsten",255:"Other"},Flash:{0x0000:"Flash did not fire",0x0001:"Flash fired",0x0005:"Strobe return light not detected",0x0007:"Strobe return light detected",0x0009:"Flash fired, compulsory flash mode",0x000D:"Flash fired, compulsory flash mode, return light not detected",0x000F:"Flash fired, compulsory flash mode, return light detected",0x0010:"Flash did not fire, compulsory flash mode",0x0018:"Flash did not fire, auto mode",0x0019:"Flash fired, auto mode",0x001D:"Flash fired, auto mode, return light not detected",0x001F:"Flash fired, auto mode, return light detected",0x0020:"No flash function",0x0041:"Flash fired, red-eye reduction mode",0x0045:"Flash fired, red-eye reduction mode, return light not detected",0x0047:"Flash fired, red-eye reduction mode, return light detected",0x0049:"Flash fired, compulsory flash mode, red-eye reduction mode",0x004D:"Flash fired, compulsory flash mode, red-eye reduction mode, return light not detected",0x004F:"Flash fired, compulsory flash mode, red-eye reduction mode, return light detected",0x0059:"Flash fired, auto mode, red-eye reduction mode",0x005D:"Flash fired, auto mode, return light not detected, red-eye reduction mode",0x005F:"Flash fired, auto mode, return light detected, red-eye reduction mode"},SensingMethod:{1:"Not defined",2:"One-chip color area sensor",3:"Two-chip color area sensor",4:"Three-chip color area sensor",5:"Color sequential area sensor",7:"Trilinear sensor",8:"Color sequential linear sensor"},SceneCaptureType:{0:"Standard",1:"Landscape",2:"Portrait",3:"Night scene"},SceneType:{1:"Directly photographed"},CustomRendered:{0:"Normal process",1:"Custom process"},WhiteBalance:{0:"Auto white balance",1:"Manual white balance"},GainControl:{0:"None",1:"Low gain up",2:"High gain up",3:"Low gain down",4:"High gain down"},Contrast:{0:"Normal",1:"Soft",2:"Hard"},Saturation:{0:"Normal",1:"Low saturation",2:"High saturation"},Sharpness:{0:"Normal",1:"Soft",2:"Hard"},SubjectDistanceRange:{0:"Unknown",1:"Macro",2:"Close view",3:"Distant view"},FileSource:{3:"DSC"},Components:{0:"",1:"Y",2:"Cb",3:"Cr",4:"R",5:"G",6:"B"}};function imageHasData(img){return!!(img.exifdata)}function findEXIFinJPEG(file){if(file.getByteAt(0)!=0xFF||file.getByteAt(1)!=0xD8){return false}var offset=2,length=file.getLength(),marker;while(offset<length){if(file.getByteAt(offset)!=0xFF){if(debug)console.log("Not a valid marker at offset "+offset+", found: "+file.getByteAt(offset));return false}marker=file.getByteAt(offset+1);if(marker==22400){if(debug)console.log("Found 0xFFE1 marker");return readEXIFData(file,offset+4,file.getShortAt(offset+2,true)-2)}else if(marker==225){if(debug)console.log("Found 0xFFE1 marker");return readEXIFData(file,offset+4,file.getShortAt(offset+2,true)-2)}else{offset+=2+file.getShortAt(offset+2,true)}}}function readTags(file,tiffStart,dirStart,strings,bigEnd){var entries=file.getShortAt(dirStart,bigEnd),tags={},entryOffset,tag,i;for(i=0;i<entries;i++){entryOffset=dirStart+i*12+2;tag=strings[file.getShortAt(entryOffset,bigEnd)];if(!tag&&debug)console.log("Unknown tag: "+file.getShortAt(entryOffset,bigEnd));tags[tag]=readTagValue(file,entryOffset,tiffStart,dirStart,bigEnd)}return tags}function readTagValue(file,entryOffset,tiffStart,dirStart,bigEnd){var type=file.getShortAt(entryOffset+2,bigEnd),numValues=file.getLongAt(entryOffset+4,bigEnd),valueOffset=file.getLongAt(entryOffset+8,bigEnd)+tiffStart,offset,vals,val,n,numerator,denominator;switch(type){case 1:case 7:if(numValues==1){return file.getByteAt(entryOffset+8,bigEnd)}else{offset=numValues>4?valueOffset:(entryOffset+8);vals=[];for(n=0;n<numValues;n++){vals[n]=file.getByteAt(offset+n)}return vals}case 2:offset=numValues>4?valueOffset:(entryOffset+8);return file.getStringAt(offset,numValues-1);case 3:if(numValues==1){return file.getShortAt(entryOffset+8,bigEnd)}else{offset=numValues>2?valueOffset:(entryOffset+8);vals=[];for(n=0;n<numValues;n++){vals[n]=file.getShortAt(offset+2*n,bigEnd)}return vals}case 4:if(numValues==1){return file.getLongAt(entryOffset+8,bigEnd)}else{vals=[];for(var n=0;n<numValues;n++){vals[n]=file.getLongAt(valueOffset+4*n,bigEnd)}return vals}case 5:if(numValues==1){numerator=file.getLongAt(valueOffset,bigEnd);denominator=file.getLongAt(valueOffset+4,bigEnd);val=new Number(numerator/denominator);val.numerator=numerator;val.denominator=denominator;return val}else{vals=[];for(n=0;n<numValues;n++){numerator=file.getLongAt(valueOffset+8*n,bigEnd);denominator=file.getLongAt(valueOffset+4+8*n,bigEnd);vals[n]=new Number(numerator/denominator);vals[n].numerator=numerator;vals[n].denominator=denominator}return vals}case 9:if(numValues==1){return file.getSLongAt(entryOffset+8,bigEnd)}else{vals=[];for(n=0;n<numValues;n++){vals[n]=file.getSLongAt(valueOffset+4*n,bigEnd)}return vals}case 10:if(numValues==1){return file.getSLongAt(valueOffset,bigEnd)/file.getSLongAt(valueOffset+4,bigEnd)}else{vals=[];for(n=0;n<numValues;n++){vals[n]=file.getSLongAt(valueOffset+8*n,bigEnd)/file.getSLongAt(valueOffset+4+8*n,bigEnd)}return vals}}}function readEXIFData(file,start){if(file.getStringAt(start,4)!="Exif"){if(debug)console.log("Not valid EXIF data! "+file.getStringAt(start,4));return false}var bigEnd,tags,tag,exifData,gpsData,tiffOffset=start+6;if(file.getShortAt(tiffOffset)==0x4949){bigEnd=false}else if(file.getShortAt(tiffOffset)==0x4D4D){bigEnd=true}else{if(debug)console.log("Not valid TIFF data! (no 0x4949 or 0x4D4D)");return false}if(file.getShortAt(tiffOffset+2,bigEnd)!=0x002A){if(debug)console.log("Not valid TIFF data! (no 0x002A)");return false}if(file.getLongAt(tiffOffset+4,bigEnd)!=0x00000008){if(debug)console.log("Not valid TIFF data! (First offset not 8)",file.getShortAt(tiffOffset+4,bigEnd));return false}tags=readTags(file,tiffOffset,tiffOffset+8,TiffTags,bigEnd);if(tags.ExifIFDPointer){exifData=readTags(file,tiffOffset,tiffOffset+tags.ExifIFDPointer,ExifTags,bigEnd);for(tag in exifData){switch(tag){case"LightSource":case"Flash":case"MeteringMode":case"ExposureProgram":case"SensingMethod":case"SceneCaptureType":case"SceneType":case"CustomRendered":case"WhiteBalance":case"GainControl":case"Contrast":case"Saturation":case"Sharpness":case"SubjectDistanceRange":case"FileSource":exifData[tag]=StringValues[tag][exifData[tag]];break;case"ExifVersion":case"FlashpixVersion":exifData[tag]=String.fromCharCode(exifData[tag][0],exifData[tag][1],exifData[tag][2],exifData[tag][3]);break;case"ComponentsConfiguration":exifData[tag]=StringValues.Components[exifData[tag][0]]+StringValues.Components[exifData[tag][1]]+StringValues.Components[exifData[tag][2]]+StringValues.Components[exifData[tag][3]];break}tags[tag]=exifData[tag]}}if(tags.GPSInfoIFDPointer){gpsData=readTags(file,tiffOffset,tiffOffset+tags.GPSInfoIFDPointer,GPSTags,bigEnd);for(tag in gpsData){switch(tag){case"GPSVersionID":gpsData[tag]=gpsData[tag][0]+"."+gpsData[tag][1]+"."+gpsData[tag][2]+"."+gpsData[tag][3];break}tags[tag]=gpsData[tag]}}return tags}function getData(img,callback){if(!img.complete)return false;if(!imageHasData(img)){getImageData(img,callback)}else{if(callback){callback.call(img)}}return true}function getTag(img,tag){if(!imageHasData(img))return;return img.exifdata[tag]}function getAllTags(img){if(!imageHasData(img))return{};var a,data=img.exifdata,tags={};for(a in data){if(data.hasOwnProperty(a)){tags[a]=data[a]}}return tags}function pretty(img){if(!imageHasData(img))return"";var a,data=img.exifdata,strPretty="";for(a in data){if(data.hasOwnProperty(a)){if(typeof data[a]=="object"){if(data[a]instanceof Number){strPretty+=a+" : "+data[a]+" ["+data[a].numerator+"/"+data[a].denominator+"]\r\n"}else{strPretty+=a+" : ["+data[a].length+" values]\r\n"}}else{strPretty+=a+" : "+data[a]+"\r\n"}}}return strPretty}function readFromBinaryFile(file){return findEXIFinJPEG(file)}function BinaryFile(strData,iDataOffset,iDataLength){var data=strData;var dataOffset=iDataOffset||0;var dataLength=0;this.getRawData=function(){return data};if(typeof strData=="string"){dataLength=iDataLength||data.length;this.getByteAt=function(iOffset){return data.charCodeAt(iOffset+dataOffset)&0xFF};this.getBytesAt=function(iOffset,iLength){var aBytes=[];for(var i=0;i<iLength;i++){aBytes[i]=data.charCodeAt((iOffset+i)+dataOffset)&0xFF}return aBytes}}else if(typeof strData=="unknown"){dataLength=iDataLength||IEBinary_getLength(data);this.getByteAt=function(iOffset){return IEBinary_getByteAt(data,iOffset+dataOffset)};this.getBytesAt=function(iOffset,iLength){return new VBArray(IEBinary_getBytesAt(data,iOffset+dataOffset,iLength)).toArray()}}this.getLength=function(){return dataLength};this.getSByteAt=function(iOffset){var iByte=this.getByteAt(iOffset);if(iByte>127)return iByte-256;else return iByte};this.getShortAt=function(iOffset,bBigEndian){var iShort=bBigEndian?(this.getByteAt(iOffset)<<8)+this.getByteAt(iOffset+1):(this.getByteAt(iOffset+1)<<8)+this.getByteAt(iOffset);if(iShort<0)iShort+=65536;return iShort};this.getSShortAt=function(iOffset,bBigEndian){var iUShort=this.getShortAt(iOffset,bBigEndian);if(iUShort>32767)return iUShort-65536;else return iUShort};this.getLongAt=function(iOffset,bBigEndian){var iByte1=this.getByteAt(iOffset),iByte2=this.getByteAt(iOffset+1),iByte3=this.getByteAt(iOffset+2),iByte4=this.getByteAt(iOffset+3);var iLong=bBigEndian?(((((iByte1<<8)+iByte2)<<8)+iByte3)<<8)+iByte4:(((((iByte4<<8)+iByte3)<<8)+iByte2)<<8)+iByte1;if(iLong<0)iLong+=4294967296;return iLong};this.getSLongAt=function(iOffset,bBigEndian){var iULong=this.getLongAt(iOffset,bBigEndian);if(iULong>2147483647)return iULong-4294967296;else return iULong};this.getStringAt=function(iOffset,iLength){var aStr=[];var aBytes=this.getBytesAt(iOffset,iLength);for(var j=0;j<iLength;j++){aStr[j]=String.fromCharCode(aBytes[j])}return aStr.join("")};this.getCharAt=function(iOffset){return String.fromCharCode(this.getByteAt(iOffset))};this.toBase64=function(){return window.btoa(data)};this.fromBase64=function(strBase64){data=window.atob(strBase64)}}return{findEXIFinJPEG:findEXIFinJPEG,pretty:pretty,getTag:getTag,getAllTags:getAllTags,getData:getData,Tags:ExifTags,TiffTags:TiffTags,GPSTags:GPSTags,StringValues:StringValues,BinaryFile:BinaryFile}})();
+(function(){function detectSubsampling(img){var iw=img.naturalWidth,ih=img.naturalHeight;if(iw*ih>1024*1024){var canvas=document.createElement('canvas');canvas.width=canvas.height=1;var ctx=canvas.getContext('2d');ctx.drawImage(img,-iw+1,0);return ctx.getImageData(0,0,1,1).data[3]===0}else{return false}}function detectVerticalSquash(img,iw,ih){var canvas=document.createElement('canvas');canvas.width=1;canvas.height=ih;var ctx=canvas.getContext('2d');ctx.drawImage(img,0,0);var data=ctx.getImageData(0,0,1,ih).data;var sy=0;var ey=ih;var py=ih;while(py>sy){var alpha=data[(py-1)*4+3];if(alpha===0){ey=py}else{sy=py}py=(ey+sy)>>1}var ratio=(py/ih);return(ratio===0)?1:ratio}function renderImageToDataURL(img,options){var canvas=document.createElement('canvas');renderImageToCanvas(img,canvas,options);return canvas.toDataURL("image/jpeg",options.quality||0.8)}function renderImageToCanvas(img,canvas,options){var iw=img.naturalWidth,ih=img.naturalHeight;var width=options.width,height=options.height;var ctx=canvas.getContext('2d');ctx.save();transformCoordinate(canvas,width,height,options.orientation);var subsampled=detectSubsampling(img);if(subsampled){iw/=2;ih/=2}var d=1024;var tmpCanvas=document.createElement('canvas');tmpCanvas.width=tmpCanvas.height=d;var tmpCtx=tmpCanvas.getContext('2d');var vertSquashRatio=detectVerticalSquash(img,iw,ih);var dw=Math.ceil(d*width/iw);var dh=Math.ceil(d*height/ih/vertSquashRatio);var sy=0;var dy=0;while(sy<ih){var sx=0;var dx=0;while(sx<iw){tmpCtx.clearRect(0,0,d,d);tmpCtx.drawImage(img,-sx,-sy);ctx.drawImage(tmpCanvas,0,0,d,d,dx,dy,dw,dh);sx+=d;dx+=dw}sy+=d;dy+=dh}ctx.restore();tmpCanvas=tmpCtx=null}function transformCoordinate(canvas,width,height,orientation){switch(orientation){case 5:case 6:case 7:case 8:canvas.width=height;canvas.height=width;break;default:canvas.width=width;canvas.height=height}var ctx=canvas.getContext('2d');switch(orientation){case 2:ctx.translate(width,0);ctx.scale(-1,1);break;case 3:ctx.translate(width,height);ctx.rotate(Math.PI);break;case 4:ctx.translate(0,height);ctx.scale(1,-1);break;case 5:ctx.rotate(0.5*Math.PI);ctx.scale(1,-1);break;case 6:ctx.rotate(0.5*Math.PI);ctx.translate(0,-height);break;case 7:ctx.rotate(0.5*Math.PI);ctx.translate(width,-height);ctx.scale(-1,1);break;case 8:ctx.rotate(-0.5*Math.PI);ctx.translate(-width,0);break;default:break}}function MegaPixImage(srcImage){if(srcImage instanceof Blob){var img=new Image();var URL=window.URL&&window.URL.createObjectURL?window.URL:window.webkitURL&&window.webkitURL.createObjectURL?window.webkitURL:null;if(!URL){throw Error("No createObjectURL function found to create blob url");}img.src=URL.createObjectURL(srcImage);srcImage=img}if(!srcImage.naturalWidth&&!srcImage.naturalHeight){var _this=this;srcImage.onload=function(){var listeners=_this.imageLoadListeners;if(listeners){_this.imageLoadListeners=null;for(var i=0,len=listeners.length;i<len;i++){listeners[i]()}}};this.imageLoadListeners=[]}this.srcImage=srcImage}MegaPixImage.prototype.render=function(target,options){if(this.imageLoadListeners){var _this=this;this.imageLoadListeners.push(function(){_this.render(target,options)});return}options=options||{};var imgWidth=this.srcImage.naturalWidth,imgHeight=this.srcImage.naturalHeight,width=options.width,height=options.height,maxWidth=options.maxWidth,maxHeight=options.maxHeight;if(width&&!height){height=(imgHeight*width/imgWidth)<<0}else if(height&&!width){width=(imgWidth*height/imgHeight)<<0}else{width=imgWidth;height=imgHeight}if(maxWidth&&width>maxWidth){width=maxWidth;height=(imgHeight*width/imgWidth)<<0}if(maxHeight&&height>maxHeight){height=maxHeight;width=(imgWidth*height/imgHeight)<<0}var opt={width:width,height:height};for(var k in options)opt[k]=options[k];var tagName=target.tagName.toLowerCase();if(tagName==='img'){target.src=renderImageToDataURL(this.srcImage,opt)}else if(tagName==='canvas'){renderImageToCanvas(this.srcImage,target,opt)}if(typeof this.onrender==='function'){this.onrender(target)}};if(typeof define==='function'&&define.amd){define([],function(){return MegaPixImage})}else{this.MegaPixImage=MegaPixImage}})();
 /*
 Copyright (c) 2001, 2019 Alpha Software Corporation
 All Rights Reserved.
@@ -837,29 +673,6 @@ licensed copy of the Alpha Five Application Server or the Alpha Anywhere Applica
 		}
 		ops.parseExifOrientation = function(dataUrl) {
 			try {
-				// Some of the more current browsers set the default image_orientation property to from-image
-				// It was previously always set to none. This check insures that the image is not rotated twice.
-				/* -----------------
-				* // 8-13-2020: modified to return null for all iOS browsers
-				* if (parseFloat(A5.flags.iOSVersion)>= 13.2) {
-				* // if running on an iOS device then check version, do not rotate for versions 13.2 snd greater
-				* return null;
-				* ------------------
-				*/
-				if (A5.flags.browserSpecs.name == "Safari") {
-					return null;
-				} else if ((A5.flags.browserSpecs.name == "Chrome") && (parseFloat(A5.flags.browserSpecs.version) >= 83)) {
-					//if running on Chrome version 81 or greater, do not rotate
-					return null;
-				} else if ((A5.flags.browserSpecs.name == "Firefox") && (parseFloat(A5.flags.browserSpecs.version) >= 75)) {
-					//if running on Firefox version 75 or greater, do not rotate
-					return null;
-				}
-				// This universal check should work with all modern browsers (Opera, etc.) that set the default value of imageOrientation to "from-image"
-				var _obj = getComputedStyle(document.body);
-				if (obj.imageOrientation == "from-image") {
-					return null;
-				}
 				var _byteString = atob(dataUrl.split(',')[1]);
 				var _binaryFile = new EXIF.BinaryFile(_byteString, 0, _byteString.length);
 				var _exif = EXIF.findEXIFinJPEG(_binaryFile);
@@ -872,7 +685,6 @@ licensed copy of the Alpha Five Application Server or the Alpha Anywhere Applica
 			} catch (e) {
 				// Error parsing EXIF data.
 				console.log('Error loading EXIF data', e);
-				return null;
 			}
 		}
 		ops.renderImgToCanvas = function(_file,_orientation,_sourceFileName) {
@@ -1468,6 +1280,13 @@ DLG1_DlgObj.addCustomSchemeForAlphaWkWebView = function(fileURL) {
 				} else {
 					xhr.setRequestHeader('x-amz-acl', 'authenticated-read');
 				}
+				//var _url = DLG1_DlgObj.ajaxURL.split('/LivePreview')[0];
+				//_url = _url.split('//')[1];
+				//alert(_url);
+				//xhr.setRequestHeader('host','ohioalphaanywheretest.s3.amazonaws.com');
+				//alert(1);
+				//https://alphapics.s3.amazonaws.com/57BCA053-3FE1-40E7-A8F2-CC801C4E2879.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ5ICQ44VBDW7T2UQ%2F20190507%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190507T154548Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host%3Bx-amz-acl&X-Amz-Signature=507fa1f335409fba3b6a72577051182364c763cecb7188fb25a2afce19496d43
+				//johnsmith.s3.amazonaws.com
 			} else {
 				//don't bother with headers. they will get set automatically becuase we will be .send()ing a FormData() object
 			}
@@ -4976,8 +4795,6 @@ DLG1_DlgObj.moveSQLiteFilesFromSubfolder = function(accountIn, cbDone, cbError) 
 	//alert(cbDone.toString());
 	var _ok = _makeOK(accountIn,cbDone);
 	var _err = function(e) { };
-	var _err = _ok; //sr 6-12-2020 on android, if there are no sqlite databases, then the _err function will get called and as a result, the onComplete event was  not firing
-	//therefore make the _err() function same as the _ok() function
 	//need to specify a blank account because the sqlite unzip creates subfolders at the root level of the sqlite folder and these are the files we want to move
 	var account = '';
 	DLG1_DlgObj.phoneGapGetSQLiteDatabases(account,_ok,_err);
@@ -5388,23 +5205,19 @@ DLG1_DlgObj.phoneGapListFilesURLPromise = function(dirpath, matchRegex) {
 	}
 	return new Promise(promiseF);
 }
-DLG1_DlgObj._loginErrorPH = 'LOGIN_ERRORS';
 DLG1_DlgObj._layoutMode = 'containerwidth';
 DLG1_DlgObj._responsiveRulesMode = 'firsttrue';
 DLG1_DlgObj.__controlNesting = {
-TWOFACTORAUTHENTICATION_STAGE1: ['Userid','Password'],
-TWOFACTORAUTHENTICATION_STAGE2: ['code'],
-PANELFOOTER_1: []
 }
 DLG1_DlgObj._listsDV = [];
 DLG1_DlgObj._listControls = [];
-DLG1_DlgObj._localStorageSettings = {namespace: 'ALPHA_03f6625b1be04eb7863f4b7753690dc7',friendlyName: '',description: '',persistVariableValues: false,__version: 1,persistComponentState: false,workingPreviewTestingFolder: '',restore: {variables: false,data: false,state: false},compressData: false,minify: false,variablesToNotPersist: '',workingPreviewTestingMode: 'Browser',compressListData: false}
+DLG1_DlgObj._localStorageSettings = {namespace: 'ALPHA_b612cda5e9f64d1aa4a7ff030d5636c4',friendlyName: '',description: '',persistVariableValues: false,__version: 1,persistComponentState: false,workingPreviewTestingFolder: '',restore: {variables: false,data: false,state: false},compressData: false,minify: false,variablesToNotPersist: '',workingPreviewTestingMode: 'Browser',compressListData: false}
 ;
 DLG1_DlgObj.__r = [];
-DLG1_DlgObj.__flagIsStaticHTML = true;
+DLG1_DlgObj._staticHTMLMode = false
 DLG1_DlgObj._EDITOR_EDITORSET = {};
-DLG1_DlgObj.styleName = 'iOS7';
-DLG1_DlgObj.styleVersion = 3
+DLG1_DlgObj.styleName = 'Alpha';
+DLG1_DlgObj.styleVersion = 4
 DLG1_DlgObj.framesInfo = {
 };
 DLG1_DlgObj._noPersist = []
@@ -5415,45 +5228,12 @@ DLG1_DlgObj._mobilePreview = false;
 DLG1_DlgObj._modernFrames = {};
 DLG1_DlgObj._listsWithDependentTFControls = DLG1_DlgObj._listsWithDependentTFControls = {}
 DLG1_DlgObj.__r = [];
-window.__preventDefault = function(event) { event.preventDefault()};
-setTimeout(function() {; },100);
-DLG1_DlgObj.__flagIsStaticHTML = true;
-DLG1_DlgObj._listInsideCards = {
-}
+function __preventDefault(event) { event.preventDefault()};
+//end 1
 ;
 ;
 
-$e.add('DLG1.V.R1.LOGIN_BUTTON',A5.d.evnts.click,function(e) {
-DLG1_DlgObj.ajaxCallback('','','xbLogin','','',{deviceOfflineFunction: function() {   }});
-},this,false,'DLG1.V.R1.LOGIN_BUTTON');
 
-
-
-
-
-
-
-
-$e.add('DLG1.V.R1.LOGIN_BUTTON1',A5.d.evnts.click,function(e) {
-DLG1_DlgObj.ajaxCallback('','','xbLogin2','','',{deviceOfflineFunction: function() {   }});
-},this,false,'DLG1.V.R1.LOGIN_BUTTON1');
-
-
-$e.add('DLG1.V.R1.BUTTON_10',A5.d.evnts.click,function(e) {
-DLG1_DlgObj.ajaxCallback('','','xb1','','',{deviceOfflineFunction: function() {   }});
-},this,false,'DLG1.V.R1.BUTTON_10');
-
-
-
-
-
-$e.add('DLG1.V.R1.LOGOUT_BUTTON',A5.d.evnts.click,function(e) {
-DLG1_DlgObj.ajaxCallback('','','xbLogout','','',{deviceOfflineFunction: function() {   }});
-},this,false,'DLG1.V.R1.LOGOUT_BUTTON');
-
-$e.add('DLG1.V.R1.BUTTON_9',A5.d.evnts.click,function(e) {
-DLG1_DlgObj.ajaxCallback('','','xb1','','',{deviceOfflineFunction: function() {   }});
-},this,false,'DLG1.V.R1.BUTTON_9');
 
 DLG1_DlgObj.prepare();DLG1_DlgObj.populate(DLG1_DlgObj.originalValues[0]);
 DLG1_DlgObj._fireWatches(1);
@@ -5494,7 +5274,7 @@ DLG1_DlgObj.initialized = true;
 
 DLG1_DlgObj._onRenderComplete = function() { DLG1_DlgObj._runJSOnLoad(); DLG1_DlgObj._findActiveLayoutRule(); }; 
 
-setTimeout(function(){ var pObj = window['DLG1_PanelObj']; if(pObj) pObj.refresh();},100);
+
 setTimeout(function() {
 	DLG1_DlgObj._executeEvent('onRenderComplete');
 	DLG1_DlgObj.flagRenderComplete = true;
