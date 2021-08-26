@@ -1,7 +1,7 @@
 {
 	"name": "com.think_black_ink.apps",
 	"displayName": "My App",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "An Alpha Anywhere Cordova App",
 	"main": "index.js",
 	"scripts": {
