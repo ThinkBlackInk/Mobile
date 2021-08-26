@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.think_black_ink.apps" version="0.0.1" versionCode="1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.think_black_ink.apps" version="0.0.1" versionCode="1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>My App</name>
     <description>
         An Alpha Anywhere Cordova App
@@ -152,6 +152,14 @@
 	
     <access origin="*" />
 	<platform name="android" />
+	<!-- allow android 9 clear text traffic -->
+		<platform name="android">
+ 		 	<edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+     			 <application android:usesCleartextTraffic="true" />
+  			</edit-config>
+		</platform>
+	<!-- end android 9 clear text -->
+
 	<plugin name="cordova-plugin-device" source="npm" version="2.0.3" />
 	<plugin name="cordova-plugin-network-information" source="npm" version="2.0.2" />
 	<plugin name="cordova-plugin-splashscreen" source="npm" version="5.0.3" />
